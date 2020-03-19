@@ -1,10 +1,10 @@
-package com.example.dagger_sample_project;
+package com.example.dagger_sample_project.Car;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
-class Remote {
+public class Remote {
     private static final String TAG = "Car";
     @Inject
     public Remote(){}

@@ -1,10 +1,18 @@
-package com.example.dagger_sample_project;
+package com.example.dagger_sample_project.Dagger;
+
+import com.example.dagger_sample_project.Car.Rims;
+import com.example.dagger_sample_project.Car.Tires;
+import com.example.dagger_sample_project.Car.Wheels;
 
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * If all fields are static, you should make the class abstract, no new instances need to be created during compile time
+ */
+
 @Module
-public class WheelsModule {
+public abstract class WheelsModule {
 
     /**
      * This creates a new Rim Object without the Rim constructor needing to be annoted, useful if you have no control over which

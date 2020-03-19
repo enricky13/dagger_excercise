@@ -1,8 +1,6 @@
-package com.example.dagger_sample_project;
+package com.example.dagger_sample_project.Car;
 
 import android.util.Log;
-
-import javax.inject.Inject;
 
 public class Wheels {
     private static final String TAG = "Car";
@@ -15,7 +13,7 @@ public class Wheels {
         this.tires = tires;
     }
 
-    void readyToGo(){
+    public void readyToGo(){
         Log.d(TAG, "readyToGo: Car is ready to go");
     }
 }
