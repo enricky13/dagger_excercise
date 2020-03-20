@@ -1,15 +1,14 @@
 package com.example.dagger_sample_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dagger_sample_project.Car.Car;
 import com.example.dagger_sample_project.Car.Remote;
 import com.example.dagger_sample_project.Car.Wheels;
 import com.example.dagger_sample_project.Dagger.CarComponent;
 import com.example.dagger_sample_project.Dagger.DaggerCarComponent;
-import com.example.dagger_sample_project.Dagger.DieselEngineModule;
 
 import javax.inject.Inject;
 
@@ -20,7 +19,7 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
    @Inject
-   Car car;
+   Car car1, car2;
 
    @Inject
    Remote remote;
@@ -34,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CarComponent carComponent = DaggerCarComponent.builder()
-                .horsePower(100)
+                .horsePower(150)
+                .engineCapacity(200)
                 .build();
         //Injects main activity to dagger's CarComponent interface, and fills every annotated @Inject field with the proper
         carComponent.inject(this);
-        car.drive();
+        car1.drive();
+        car2.drive();
         wheels.readyToGo();
         }
 }

@@ -3,11 +3,15 @@ package com.example.dagger_sample_project.Dagger;
 import com.example.dagger_sample_project.Car.Car;
 import com.example.dagger_sample_project.MainActivity;
 
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import dagger.BindsInstance;
 import dagger.Component;
 
 // Must have the @Component annotation for dagger to be ready and construct objects
 // When using modules, if an object depends on that module for its object creations then use the parenthese () along with which modul is used
+@Singleton
 @Component(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface CarComponent {
     //When you have a return type, it looks for @Inject annotiation for that type and follows the constructors way of making the object
@@ -26,7 +30,10 @@ public interface CarComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        Builder horsePower(int horsePower);
+        Builder horsePower(@Named("horsePower") int horsePower);
+
+        @BindsInstance
+        Builder engineCapacity(@Named("engineCapacity")int engineCapacity);
 
         CarComponent build();
     }

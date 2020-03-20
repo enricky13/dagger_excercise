@@ -3,17 +3,20 @@ package com.example.dagger_sample_project.Car;
 import android.util.Log;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 public class Car {
     private static final String TAG = "Car";
 
+    private Driver driver;
     private Engine engine;
     private Wheels wheels;
 
     @Inject
-    public Car(Engine engine, Wheels wheels){
+    public Car(Engine engine, Wheels wheels, Driver driver){
         this.engine = engine;
         this.wheels = wheels;
+        this.driver = driver;
     }
 
     /**
@@ -28,7 +31,7 @@ public class Car {
     }
 
     public void drive(){
-        Log.d(TAG, "driving...");
+        Log.d(TAG, driver + " drives " + this);
         engine.start();
     }
 }
